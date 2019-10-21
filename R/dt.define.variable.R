@@ -1,12 +1,31 @@
-#' dat:  a data.frame object
-
-#' variable.name:  a character value specifying the name of the new column
-
-#' the.values:  a vector of data specifying the values of the new column.
-
-#' Note:  the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)
+#' df.define.variable
+#' 
+#' @description A function that an user can re-define the variables. Users have freedom to set the variable name and the the values. The values could be either expression, direct code(data.table format), or character. For details, please see the examples.   
+#' 
+#' @param dat:  a data.frame object
+#' @param variable.name:  a character value specifying the name of the new column
+#' @param the.values: a vector of data specifying the values of the new column.
+#' @note the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)
 
 #' @export 
+#' @import formulaic
+#' @source create.filter.expression.R
+#' @examples 
+#' 
+#' age.name = "Age"
+#' income.name = "Income"
+#' region.name = "Region"
+#' 
+#' snack.dat <- dt.define.variable(dat = snack.dat, variable.name = "Age Decade", the.values = snack.dat[, floor(get(age.name) / 10)])
+#' snack.dat[1:10, .SD, .SDcols = c(age.name, "Age Decade")]
+#' 
+#' snack.dat <- dt.define.variable(dat = snack.dat, variable.name = "Income in Thousands", the.values = expression(floor(get(income.name) / 10^3)), specification = "by.expression")
+#' snack.dat[1:10, .SD, .SDcols = c(income.name, "Income in Thousands")]
+#' snack.dat <- dt.define.variable(dat = snack.dat, variable.name = "Income in Thousands", the.values = "floor(get(income.name) / 10^3)", specification = "by.expression")
+#' snack.dat[1:10, .SD, .SDcols = c(income.name, "Income in Thousands")]
+#' snack.dat <- dt.define.variable(dat = snack.dat, variable.name = "Region and Country", the.values = expression(sprintf('%s, USA', get(region.name))), specification = "by.expression")
+#' snack.dat[1:10, .SD, .SDcols = c(region.name, "Region and Country")]
+
 dt.define.variable <- function(dat, variable.name, the.values, specification = "by.value", the.filter = NULL){
   require(data.table)
   setDT(dat)
@@ -21,3 +40,4 @@ dt.define.variable <- function(dat, variable.name, the.values, specification = "
 
   return(dat)
 }
+
