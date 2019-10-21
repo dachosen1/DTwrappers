@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert factor to characters — convert.factor.to.character • DTwrapers</title>
+<title>dt select — dt.select • DTwrapers</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Convert factor to characters — convert.factor.to.character" />
-<meta property="og:description" content="function that converts factors to character" />
+<meta property="og:title" content="dt select — dt.select" />
+<meta property="og:description" content="TBD" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,23 +100,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert factor to characters</h1>
+    <h1>dt select</h1>
     
-    <div class="hidden name"><code>convert.factor.to.character.Rd</code></div>
+    <div class="hidden name"><code>dt.select.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>function that converts factors to character</p>
+    <p>TBD</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convert.factor.to.character</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dt.select</span>(<span class='no'>dat</span>, <span class='kw'>the.variables</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>the.filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>grouping.variables</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>grouping.type</span> <span class='kw'>=</span> <span class='st'>"keyby"</span>, <span class='kw'>first.k</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>last.k</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row.indices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x:</th>
-      <td><p>a vector of any kind.  If x is a factor, it will be converted to a character vector.</p></td>
+      <th>dat</th>
+      <td><p>A data.frame object.</p></td>
+    </tr>
+    <tr>
+      <th>the.variables</th>
+      <td><p>A character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).</p></td>
+    </tr>
+    <tr>
+      <th>the.filter</th>
+      <td><p>A character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.</p></td>
+    </tr>
+    <tr>
+      <th>grouping.variables</th>
+      <td><p>A character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.</p></td>
+    </tr>
+    <tr>
+      <th>grouping.type</th>
+      <td><p>A character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.</p></td>
+    </tr>
+    <tr>
+      <th>first.k</th>
+      <td><p>An integer indicating how many rows to select starting from the first row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if first.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of first.k are selected, the algorithm will select first.k = max(c(1, round(first.k))).  If first.k is not a numeric or integer value, then by default first.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter first.k; if row.indices is not NULL, then row.indices will be used, and first.k will not. Meanwhile, first.k takes precedence to last.k when both are specified.  See below.</p></td>
+    </tr>
+    <tr>
+      <th>last.k</th>
+      <td><p>An integer indicating how many rows to select starting from the last row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if last.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of last.k are selected, the algorithm will select last.k = max(c(1, round(last.k))).  If last.k is not a numeric or integer value, then by default last.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter last.k (see below); if row.indices is not NULL, then it will be used, and last.k will not.  Meanwhile, first.k takes precedence to last.k when both are specified.</p></td>
+    </tr>
+    <tr>
+      <th>row.indices</th>
+      <td><p>An integer vector specifying the row indices to return.  When grouping.variables is specified, these indices will be applied to each group.  Note that specifications outside of the range from 1 to the number of rows will be limited to existing rows from the data and group.  Specifying row.indices takes precedence to specifying the parameters first.k and last.k.  If row.indices is not NULL, it will be used.</p></td>
     </tr>
     </table>
 

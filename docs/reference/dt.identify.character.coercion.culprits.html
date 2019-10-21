@@ -7,12 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>dat:  a data.frame object.
-k:  an integer indicating how many rows to select.  Note that grouping statements will select the first k rows in each group.  Additionally, if k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of k are selected, the algorithm will select k = max(c(1, round(k))).  If k is not a numeric or integer value, then by default k is set to 1.
+threshold.for.numeric:  a value between 0 and 1 specifying the maximum proportion of x that does not "look" numeric, e.g. "2.154" is a character value that can be converted to a numeric value.. If threshold.for.numeric = 0.1, then no more than 10<!-- % of the values in x can be values that do not "look" numeric. -->
 the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
-the.filter:  a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
-grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
+the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x)return(mean(x = x)) that can be computed on each column of data as specified in the.variables.
+the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
+grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
 grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-Calls dt.select with first.k = k. — dt.first.k.rows • DTwrapers</title>
+add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table. — dt.identify.character.coercion.culprits • DTwrapers</title>
 
 
 <!-- jquery -->
@@ -42,19 +43,21 @@ Calls dt.select with first.k = k. — dt.first.k.rows • DTwrapers</title>
 
 
 <meta property="og:title" content="dat:  a data.frame object.
-k:  an integer indicating how many rows to select.  Note that grouping statements will select the first k rows in each group.  Additionally, if k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of k are selected, the algorithm will select k = max(c(1, round(k))).  If k is not a numeric or integer value, then by default k is set to 1.
+threshold.for.numeric:  a value between 0 and 1 specifying the maximum proportion of x that does not "look" numeric, e.g. "2.154" is a character value that can be converted to a numeric value.. If threshold.for.numeric = 0.1, then no more than 10<!-- % of the values in x can be values that do not "look" numeric. -->
 the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
-the.filter:  a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
-grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
+the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x)return(mean(x = x)) that can be computed on each column of data as specified in the.variables.
+the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
+grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
 grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-Calls dt.select with first.k = k. — dt.first.k.rows" />
+add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table. — dt.identify.character.coercion.culprits" />
 <meta property="og:description" content="dat:  a data.frame object.
-k:  an integer indicating how many rows to select.  Note that grouping statements will select the first k rows in each group.  Additionally, if k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of k are selected, the algorithm will select k = max(c(1, round(k))).  If k is not a numeric or integer value, then by default k is set to 1.
+threshold.for.numeric:  a value between 0 and 1 specifying the maximum proportion of x that does not &quot;look&quot; numeric, e.g. &quot;2.154&quot; is a character value that can be converted to a numeric value.. If threshold.for.numeric = 0.1, then no more than 10
 the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes &quot;.&quot;, then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
-the.filter:  a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
-grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
+the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. &quot;mean&quot;) or by defining a function; e.g. function(x)return(mean(x = x)) that can be computed on each column of data as specified in the.variables.
+the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
+grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
 grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless &quot;by&quot; is specified.
-Calls dt.select with first.k = k." />
+add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -119,29 +122,31 @@ Calls dt.select with first.k = k." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>dat:  a data.frame object.
-k:  an integer indicating how many rows to select.  Note that grouping statements will select the first k rows in each group.  Additionally, if k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of k are selected, the algorithm will select k = max(c(1, round(k))).  If k is not a numeric or integer value, then by default k is set to 1.
+threshold.for.numeric:  a value between 0 and 1 specifying the maximum proportion of x that does not "look" numeric, e.g. "2.154" is a character value that can be converted to a numeric value.. If threshold.for.numeric = 0.1, then no more than 10<!-- % of the values in x can be values that do not "look" numeric. -->
 the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
-the.filter:  a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
-grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
+the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x)return(mean(x = x)) that can be computed on each column of data as specified in the.variables.
+the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
+grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
 grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-Calls dt.select with first.k = k.</h1>
+add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table.</h1>
     
-    <div class="hidden name"><code>dt.first.k.rows.Rd</code></div>
+    <div class="hidden name"><code>dt.identify.character.coercion.culprits.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>dat:  a data.frame object.
-k:  an integer indicating how many rows to select.  Note that grouping statements will select the first k rows in each group.  Additionally, if k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of k are selected, the algorithm will select k = max(c(1, round(k))).  If k is not a numeric or integer value, then by default k is set to 1.
+threshold.for.numeric:  a value between 0 and 1 specifying the maximum proportion of x that does not "look" numeric, e.g. "2.154" is a character value that can be converted to a numeric value.. If threshold.for.numeric = 0.1, then no more than 10<!-- % of the values in x can be values that do not "look" numeric. -->
 the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
-the.filter:  a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
-grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
+the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x)return(mean(x = x)) that can be computed on each column of data as specified in the.variables.
+the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
+grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
 grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-Calls dt.select with first.k = k.</p>
+add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dt.first.k.rows</span>(<span class='no'>dat</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>the.variables</span> <span class='kw'>=</span> <span class='st'>"."</span>,
-  <span class='kw'>the.filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>grouping.variables</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>grouping.type</span> <span class='kw'>=</span> <span class='st'>"keyby"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dt.identify.character.coercion.culprits</span>(<span class='no'>dat</span>, <span class='kw'>threshold.for.numeric</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>the.variables</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>the.filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>grouping.variables</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>grouping.type</span> <span class='kw'>=</span> <span class='st'>"keyby"</span>, <span class='kw'>add.function.name</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
 
 
 

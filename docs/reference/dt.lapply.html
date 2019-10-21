@@ -6,10 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>dat:  a data.frame object
-variable.name:  a character value specifying the name of the new column
-the.values:  a vector of data specifying the values of the new column.
-Note:  the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory) — dt.define.variable • DTwrapers</title>
+<title>dat:  a data.frame object. — dt.lapply • DTwrapers</title>
 
 
 <!-- jquery -->
@@ -38,14 +35,8 @@ Note:  the data.frame dat will be converted to a data.table object to facilitate
 
 
 
-<meta property="og:title" content="dat:  a data.frame object
-variable.name:  a character value specifying the name of the new column
-the.values:  a vector of data specifying the values of the new column.
-Note:  the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory) — dt.define.variable" />
-<meta property="og:description" content="dat:  a data.frame object
-variable.name:  a character value specifying the name of the new column
-the.values:  a vector of data specifying the values of the new column.
-Note:  the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)" />
+<meta property="og:title" content="dat:  a data.frame object. — dt.lapply" />
+<meta property="og:description" content="the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes &quot;.&quot;, then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,30 +100,34 @@ Note:  the data.frame dat will be converted to a data.table object to facilitate
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>dat:  a data.frame object
-variable.name:  a character value specifying the name of the new column
-the.values:  a vector of data specifying the values of the new column.
-Note:  the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)</h1>
+    <h1>dat:  a data.frame object.</h1>
     
-    <div class="hidden name"><code>dt.define.variable.Rd</code></div>
+    <div class="hidden name"><code>dt.lapply.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>dat:  a data.frame object
-variable.name:  a character value specifying the name of the new column
-the.values:  a vector of data specifying the values of the new column.
-Note:  the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)</p>
+    <p>the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dt.define.variable</span>(<span class='no'>dat</span>, <span class='no'>variable.name</span>, <span class='no'>the.values</span>,
-  <span class='kw'>specification</span> <span class='kw'>=</span> <span class='st'>"by.value"</span>, <span class='kw'>the.filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>dt.lapply</span>(<span class='no'>dat</span>, <span class='kw'>the.variables</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='no'>the.functions</span>, <span class='kw'>the.filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>grouping.variables</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>grouping.type</span> <span class='kw'>=</span> <span class='st'>"keyby"</span>,
+  <span class='kw'>add.function.name</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>other.params</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='no'>...</span>)</pre>
 
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x)return(mean(x = x)) that can be computed on each column of data as specified in the.variables.</p>
+<p>the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.</p>
+<p>grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.</p>
+<p>grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.</p>
+<p>add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table.  Only applies if the.functions is of length 1.</p>
+<p>other.params:  a character value specifying any additional parameters needed to call the.functions.  For instance, if the.functions = "mean", and you would like to remove missing values, then specifying other.params = "na.rm = TRUE" as a character would suffice.  Multiple parameters can be specified with comma separation, e.g. other.params = "trim = 1, na.rm = TRUE".  Note that all of the parameters supplied must apply to all of the.functions</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#details">Details</a></li>
     </ul>
 
   </div>
