@@ -28,4 +28,4 @@ create.filter.expression <- function(the.filter){
   return(the.filter)
 }
 
-dat %>% filter(get(age.name) > 18) %>% summarize(mean = mean(get(age.name)))
+

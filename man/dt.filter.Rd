@@ -2,14 +2,33 @@
 % Please edit documentation in R/dt.filter.R
 \name{dt.filter}
 \alias{dt.filter}
-\title{dat:  a data.frame
-the.filter:  a character value or expression stating the logical operations to be performed.
-A subset of the data corresponding to the rows on which the filtering statement are TRUE is returned.}
+\title{dt.filter}
+\source{
+create.filter.expression.R
+}
 \usage{
 dt.filter(dat, the.filter = NULL)
 }
+\arguments{
+\item{dat:}{a data.frame}
+
+\item{the.filter:}{a character value or expression stating the logical operations to be performed.}
+}
 \description{
-dat:  a data.frame
-the.filter:  a character value or expression stating the logical operations to be performed.
-A subset of the data corresponding to the rows on which the filtering statement are TRUE is returned.
+A fucntion that subsets the data corresponding to the filtering statement.
+}
+\examples{
+region.name = "Region"
+gender.name = "Gender"
+product.name = "Product"
+income.name = "Income"
+age.name = "Age"
+persona.name = "Persona"
+
+dt.filter(dat = snack.dat, the.filter = "Region == 'Northeast' & Gender == 'Female' & Age >= 80 & Income > 145000 & Product == 'Cookie_Crumble'")
+
+dt.filter(dat = snack.dat, the.filter = "get(region.name) == 'Northeast' & get(gender.name) == 'Female' & get(age.name) >= 80 & get(income.name) > 145000 & get(product.name) == 'Cookie_Crumble'")
+
+dt.filter(dat = snack.dat, the.filter = expression(get(age.name) < 35 & get(persona.name) == "Millenial Muncher" & get(product.name) == "Tiramisoup" & get(income.name) <= 25000))
+
 }

@@ -8,20 +8,29 @@
 #' @export
 #' @source convert.factor.character.R
 #' @source dt.lapply.R
-#' @examples
 #' @import formulaic
-#' 
+#' @examples
 #'  dat <- snack.dat
 #'  income.group.name = "Income Group"
 #'  region.name = "Region"
 #'  dat[, eval(income.group.name) := as.factor(get(income.group.name))]
 #'  dat[, eval(region.name) := as.factor(get(region.name))]
-#'  
 #'  str(dt.convert.factor.to.character(dat = dat, the.variables = c(income.group.name, region.name)))
-
-
-dt.convert.factor.to.character <- function(dat, the.variables = ".", add.function.name = FALSE, ...){
-  
-  return(dt.lapply(dat = dat, the.variables = the.variables, the.functions = "convert.factor.to.character", add.function.name = add.function.name, ...))
-}
+#' 
+#' @export
+dt.convert.factor.to.character <-
+  function(dat,
+           the.variables = ".",
+           add.function.name = FALSE,
+           ...) {
+    return(
+      dt.lapply(
+        dat = dat,
+        the.variables = the.variables,
+        the.functions = "convert.factor.to.character",
+        add.function.name = add.function.name,
+        ...
+      )
+    )
+  }
 

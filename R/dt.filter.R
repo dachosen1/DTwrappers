@@ -23,6 +23,7 @@
 #' 
 #' dt.filter(dat = snack.dat, the.filter = expression(get(age.name) < 35 & get(persona.name) == "Millenial Muncher" & get(product.name) == "Tiramisoup" & get(income.name) <= 25000))
 #' 
+#' @export
 dt.filter <- function(dat, the.filter = NULL){
   require(data.table)
   setDT(dat)

@@ -2,15 +2,32 @@
 % Please edit documentation in R/dt.convert.factor.to.character.R
 \name{dt.convert.factor.to.character}
 \alias{dt.convert.factor.to.character}
-\title{dat:  a data.frame object.
-the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.
-add.function.name:  a logical value.  If TRUE, then the names of the variables are concatenated with the suffix convert.factor.to.character.}
+\title{dt.convert.factor.to.character}
+\source{
+convert.factor.character.R
+
+dt.lapply.R
+}
 \usage{
 dt.convert.factor.to.character(dat, the.variables = ".",
   add.function.name = FALSE, ...)
 }
+\arguments{
+\item{dat:}{a data.frame object.}
+
+\item{the.variables:}{a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.}
+
+\item{add.function.name:}{a logical value.  If TRUE, then the names of the variables are concatenated with the suffix convert.factor.to.character.}
+}
 \description{
-dat:  a data.frame object.
-the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.
-add.function.name:  a logical value.  If TRUE, then the names of the variables are concatenated with the suffix convert.factor.to.character.
+A function that converts a factor to a character.
+}
+\examples{
+ dat <- snack.dat
+ income.group.name = "Income Group"
+ region.name = "Region"
+ dat[, eval(income.group.name) := as.factor(get(income.group.name))]
+ dat[, eval(region.name) := as.factor(get(region.name))]
+ str(dt.convert.factor.to.character(dat = dat, the.variables = c(income.group.name, region.name)))
+
 }
