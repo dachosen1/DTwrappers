@@ -17,3 +17,4 @@ LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
     covr
+VignetteBuilder: knitr
