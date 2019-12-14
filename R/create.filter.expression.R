@@ -3,6 +3,7 @@
 #'  @description A function that creates filter expressions. Expression could be a character value, logical value, or expression stating the logical operations.
 #' 
 #'  @param the.filter The filter criteria could be a character value, logical value, or expression stating the logical operations to be performed in filtering the data.
+#'  @import formulaic
 #'  @export
 #'  @examples 
 #'  

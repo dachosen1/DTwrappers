@@ -8,7 +8,7 @@
 #' @param grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
 #' @param count.name:  a character value specifying the name of the column of counts in the resulting table. Defaults to "N" unless specified.
 #' @note the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)
-#'
+#' @import formulaic
 #' @export 
 #' @examples 
 #' 

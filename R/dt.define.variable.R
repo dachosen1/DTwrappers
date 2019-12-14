@@ -8,7 +8,7 @@
 #' @param specification: Defaults to "by.value" unless the.values is set to be an expression or a vector, then specification should be set as "by.expression".
 #' @param the.filter: a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function. Defaults to "NULL" unless specified.
 #' @note the data.frame dat will be converted to a data.table object to facilitate adding the new column by reference (e.g. efficiently with regard to the usage of memory)
-#' 
+#' @import formulaic
 #' @export 
 #' @examples 
 #' 
