@@ -4,7 +4,7 @@
 \alias{dt.select}
 \title{dt select}
 \source{
-create.filter.expression.R
+DTwrapers::create.filter.expression
 
 id.name = 'User ID'
 awareness.name = 'Awareness'
@@ -14,21 +14,21 @@ satisfaction.name = 'Satisfaction'
 advocacy.name = 'Advocacy'
 gender.name = 'Gender'
 
-dt.select(dat = snack.dat, the.variables = c(id.name, awareness.name))
+dt.select(dat = formulaic::snack.dat, the.variables = c(id.name, awareness.name))
 
-dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name))
+dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name))
 
-dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2)
+dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2)
 
-dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), last.k = 2)
-dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2, last.k = 2)
+dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), last.k = 2)
+dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2, last.k = 2)
 
-dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), row.indices = 7:9)
+dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), row.indices = 7:9)
 }
 \usage{
 dt.select(dat, the.variables = ".", the.filter = NULL,
   grouping.variables = NULL, grouping.type = "keyby", first.k = NULL,
-  last.k = NULL, row.indices = NULL, ...)
+  last.k = NULL, row.indices = NULL)
 }
 \arguments{
 \item{dat}{A data.frame object.}
