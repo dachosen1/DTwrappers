@@ -16,6 +16,10 @@ dt.define.variable(dat, variable.name, the.values,
 \item{variable.name:}{a character value specifying the name of the new column}
 
 \item{the.values:}{a vector of data specifying the values of the new column.}
+
+\item{specification:}{Defaults to "by.value" unless the.values is set to be an expression or a vector, then specification should be set as "by.expression".}
+
+\item{the.filter:}{a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function. Defaults to "NULL" unless specified.}
 }
 \description{
 A function that an user can re-define the variables. Users have freedom to set the variable name and the the values. The values could be either expression, direct code(data.table format), or character. For details, please see the examples.
@@ -25,6 +29,7 @@ the data.frame dat will be converted to a data.table object to facilitate adding
 }
 \examples{
 
+data('snack.dat')
 age.name = "Age"
 income.name = "Income"
 region.name = "Region"

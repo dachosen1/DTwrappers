@@ -10,6 +10,7 @@
 #' @param  grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
 #' @note  Calls dt.select.R with last.k = k.
 #' 
+#' @export
 #' @examples 
 #' @import formulaic
 #' @source dt.select.R

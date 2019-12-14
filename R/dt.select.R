@@ -12,7 +12,7 @@
 #' @param last.k  An integer indicating how many rows to select starting from the last row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if last.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of last.k are selected, the algorithm will select last.k = max(c(1, round(last.k))).  If last.k is not a numeric or integer value, then by default last.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter last.k (see below); if row.indices is not NULL, then it will be used, and last.k will not.  Meanwhile, first.k takes precedence to last.k when both are specified.
 #' @param row.indices  An integer vector specifying the row indices to return.  When grouping.variables is specified, these indices will be applied to each group.  Note that specifications outside of the range from 1 to the number of rows will be limited to existing rows from the data and group.  Specifying row.indices takes precedence to specifying the parameters first.k and last.k.  If row.indices is not NULL, it will be used.
 #'
-#'
+#' @export
 #' @examples 
 #' @import formulaic
 #' @source create.filter.expression.R
@@ -37,7 +37,6 @@
 #' dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), row.indices = 7:9)
 #' 
 #' @export
-#' 
 dt.select <-
   function(dat,
            the.variables = ".",

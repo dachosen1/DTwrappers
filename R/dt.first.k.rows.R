@@ -29,7 +29,7 @@
 #' dt.first.k.rows(dat = snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
 #' 
 #' 
-#' 
+#' @export
 dt.first.k.rows <- function(dat, k = NULL, the.variables = ".", the.filter = NULL, grouping.variables = NULL, grouping.type = "keyby", ...){
   return(dt.select(dat = dat, the.variables = the.variables, the.filter = the.filter, grouping.variables = grouping.variables, grouping.type = grouping.type, first.k = k, ...))
 }

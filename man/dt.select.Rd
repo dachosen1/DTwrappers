@@ -3,6 +3,28 @@
 \name{dt.select}
 \alias{dt.select}
 \title{dt select}
+\source{
+create.filter.expression.R
+
+id.name = 'User ID'
+awareness.name = 'Awareness'
+consideration.name = 'Consideration'
+consumption.name = 'Consumption'
+satisfaction.name = 'Satisfaction'
+advocacy.name = 'Advocacy'
+gender.name = 'Gender'
+
+dt.select(dat = snack.dat, the.variables = c(id.name, awareness.name))
+
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name))
+
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2)
+
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), last.k = 2)
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2, last.k = 2)
+
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), row.indices = 7:9)
+}
 \usage{
 dt.select(dat, the.variables = ".", the.filter = NULL,
   grouping.variables = NULL, grouping.type = "keyby", first.k = NULL,
@@ -26,5 +48,5 @@ dt.select(dat, the.variables = ".", the.filter = NULL,
 \item{row.indices}{An integer vector specifying the row indices to return.  When grouping.variables is specified, these indices will be applied to each group.  Note that specifications outside of the range from 1 to the number of rows will be limited to existing rows from the data and group.  Specifying row.indices takes precedence to specifying the parameters first.k and last.k.  If row.indices is not NULL, it will be used.}
 }
 \description{
-TBD
+This provides more flexibility in selecting the rows to include such as first.k, last.k, or specific row by setting up the parameters.
 }
