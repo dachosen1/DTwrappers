@@ -38,7 +38,7 @@
 dt.count <- function(dat, the.filter = NULL, grouping.variables = NULL, grouping.type = "keyby", count.name = "N"){
   
   data.table::setDT(dat)
-  
+  "." <- NULL
   the.filter <- create.filter.expression(the.filter = the.filter)
   
   

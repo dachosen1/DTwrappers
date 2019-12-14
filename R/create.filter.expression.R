@@ -5,7 +5,7 @@
 #' @param the.filter The filter criteria could be a character value, logical value, or expression stating the logical operations to be performed in filtering the data.
 #' @export
 #' @examples 
-#'  
+#'
 #' age.name = "Age"
 #' region.name = "Region"
 #'  

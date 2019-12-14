@@ -13,7 +13,7 @@ create.filter.expression(the.filter)
 A function that creates filter expressions. Expression could be a character value, logical value, or expression stating the logical operations.
 }
 \examples{
- 
+
 age.name = "Age"
 region.name = "Region"
  
