@@ -100,9 +100,6 @@ dt.select <-
         j.statement <- ".SD, .SDcols = the.variables"
       }
       
-      if (specified.first.k == T & specified.last.k == T){
-        j.statement <-  '.SD[c(1:min(.N, first.k), max(1, 1 + .N - last.k):.N)], .SDcols = the.variables'
-      }
     }
     
     null.status.grouping.variables <- is.null(grouping.variables)
