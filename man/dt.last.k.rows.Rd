@@ -19,8 +19,15 @@ dt.last.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age
 dt.last.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
 }
 \usage{
-dt.last.k.rows(dat, k = NULL, the.variables = ".", the.filter = NULL,
-  grouping.variables = NULL, grouping.type = "keyby", ...)
+dt.last.k.rows(
+  dat,
+  k = NULL,
+  the.variables = ".",
+  the.filter = NULL,
+  grouping.variables = NULL,
+  grouping.type = "keyby",
+  ...
+)
 }
 \arguments{
 \item{dat}{a data.frame object.}
@@ -34,6 +41,8 @@ dt.last.k.rows(dat, k = NULL, the.variables = ".", the.filter = NULL,
 \item{grouping.variables}{a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.}
 
 \item{grouping.type}{a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.}
+
+\item{...}{tbd}
 }
 \description{
 A functions that returns the last K number of rows from the given data frame based on the variables and the grouping varaibles statement.

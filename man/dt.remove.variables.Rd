@@ -7,9 +7,9 @@
 dt.remove.variables(dat, the.variables)
 }
 \arguments{
-\item{dat:}{a data.frame object}
+\item{dat}{a data.frame object}
 
-\item{the.variables:}{a character vector with the column names to be removed from dat.}
+\item{the.variables}{a character vector with the column names to be removed from dat.}
 }
 \description{
 TBD

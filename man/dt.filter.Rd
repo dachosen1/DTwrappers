@@ -7,9 +7,9 @@
 dt.filter(dat, the.filter = NULL)
 }
 \arguments{
-\item{dat:}{a data.frame}
+\item{dat}{a data.frame}
 
-\item{the.filter:}{a character value or expression stating the logical operations to be performed.}
+\item{the.filter}{a character value or expression stating the logical operations to be performed.}
 }
 \description{
 A fucntion that subsets the data corresponding to the filtering statement.

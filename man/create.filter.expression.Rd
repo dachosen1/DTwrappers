@@ -16,12 +16,12 @@ A function that creates filter expressions. Expression could be a character valu
 
 age.name = "Age"
 region.name = "Region"
- 
+
 create.filter.expression(the.filter = NULL)
 create.filter.expression(the.filter = c(age.name, region.name))
 create.filter.expression(the.filter = age.name == region.name)
 create.filter.expression(the.filter = "get(region.name) == 'South'")
 create.filter.expression(the.filter = "get(age.name) > 20")
 create.filter.expression(the.filter = "get(region.name) == 'South' & get(age.name) > 20")
- 
+
 }

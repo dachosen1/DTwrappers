@@ -2,15 +2,15 @@
 #'
 #' @description  TBD
 #'
-#' @param dat:  a data.frame object.
-#' @param the.variables:  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
-#' @param the.functions:  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x){return(mean(x = x))} that can be computed on each column of data as specified in the.variables.
-#' @param the.filter:  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
-#' @param grouping.variables:  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
-#' @param grouping.type:  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-#' @param add.function.name:  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table.  Only applies if the.functions is of length 1.
-#' @param other.params:  a character value specifying any additional parameters needed to call the.functions.  For instance, if the.functions = "mean", and you would like to remove missing values, then specifying other.params = "na.rm = TRUE" as a character would suffice.  Multiple parameters can be specified with comma separation, e.g. other.params = "trim = 1, na.rm = TRUE".  Note that all of the parameters supplied must apply to all of the.functions
-#'
+#' @param dat  a data.frame object.
+#' @param the.variables  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
+#' @param the.functions  a character vector or list specifying the name of the function to apply to the variables.  This may either be specified by the name of the function as a character (e.g. "mean") or by defining a function; e.g. function(x){return(mean(x = x))} that can be computed on each column of data as specified in the.variables.
+#' @param the.filter  a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
+#' @param grouping.variables  a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.
+#' @param grouping.type  a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
+#' @param add.function.name  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table.  Only applies if the.functions is of length 1.
+#' @param other.params  a character value specifying any additional parameters needed to call the.functions.  For instance, if the.functions = "mean", and you would like to remove missing values, then specifying other.params = "na.rm = TRUE" as a character would suffice.  Multiple parameters can be specified with comma separation, e.g. other.params = "trim = 1, na.rm = TRUE".  Note that all of the parameters supplied must apply to all of the.functions
+#' @param  ... tbd
 #' @import data.table
 #'
 #' @export

@@ -26,9 +26,16 @@ dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northe
 dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), row.indices = 7:9)
 }
 \usage{
-dt.select(dat, the.variables = ".", the.filter = NULL,
-  grouping.variables = NULL, grouping.type = "keyby", first.k = NULL,
-  last.k = NULL, row.indices = NULL)
+dt.select(
+  dat,
+  the.variables = ".",
+  the.filter = NULL,
+  grouping.variables = NULL,
+  grouping.type = "keyby",
+  first.k = NULL,
+  last.k = NULL,
+  row.indices = NULL
+)
 }
 \arguments{
 \item{dat}{A data.frame object.}

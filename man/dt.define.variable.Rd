@@ -38,26 +38,26 @@ age.name = "Age"
 income.name = "Income"
 region.name = "Region"
 
-snack.dat <- dt.define.variable(dat = formulaic::snack.dat, 
-variable.name = "Age Decade", 
+snack.dat <- dt.define.variable(dat = formulaic::snack.dat,
+variable.name = "Age Decade",
 the.values = formulaic::snack.dat[, floor(get(age.name) / 10)])
 snack.dat[1:10, .SD, .SDcols = c(age.name, "Age Decade")]
 
-snack.dat <- dt.define.variable(dat = formulaic::snack.dat, 
-variable.name = "Income in Thousands", 
-the.values = expression(floor(get(income.name) / 10^3)), 
+snack.dat <- dt.define.variable(dat = formulaic::snack.dat,
+variable.name = "Income in Thousands",
+the.values = expression(floor(get(income.name) / 10^3)),
 specification = "by.expression")
 snack.dat[1:10, .SD, .SDcols = c(income.name, "Income in Thousands")]
 
-snack.dat <- dt.define.variable(dat = formulaic::snack.dat, 
-variable.name = "Income in Thousands", 
-the.values = "floor(get(income.name) / 10^3)", 
+snack.dat <- dt.define.variable(dat = formulaic::snack.dat,
+variable.name = "Income in Thousands",
+the.values = "floor(get(income.name) / 10^3)",
 specification = "by.expression")
 snack.dat[1:10, .SD, .SDcols = c(income.name, "Income in Thousands")]
 
-snack.dat <- dt.define.variable(dat = formulaic::snack.dat, 
-variable.name = "Region and Country", 
-the.values = expression(sprintf('\%s, USA', get(region.name))), 
+snack.dat <- dt.define.variable(dat = formulaic::snack.dat,
+variable.name = "Region and Country",
+the.values = expression(sprintf('\%s, USA', get(region.name))),
 specification = "by.expression")
 snack.dat[1:10, .SD, .SDcols = c(region.name, "Region and Country")]
 
