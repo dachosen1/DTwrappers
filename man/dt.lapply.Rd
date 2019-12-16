@@ -33,7 +33,7 @@ dt.lapply(
 
 \item{other.params}{a character value specifying any additional parameters needed to call the.functions.  For instance, if the.functions = "mean", and you would like to remove missing values, then specifying other.params = "na.rm = TRUE" as a character would suffice.  Multiple parameters can be specified with comma separation, e.g. other.params = "trim = 1, na.rm = TRUE".  Note that all of the parameters supplied must apply to all of the.functions}
 
-\item{...}{tbd}
+\item{...}{additional arguments to be passed}
 }
 \description{
 TBD
