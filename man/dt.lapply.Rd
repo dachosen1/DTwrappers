@@ -3,6 +3,9 @@
 \name{dt.lapply}
 \alias{dt.lapply}
 \title{dt.lapply}
+\source{
+DTwrappers::create.filter.expression
+}
 \usage{
 dt.lapply(
   dat,
@@ -36,5 +39,5 @@ dt.lapply(
 \item{...}{additional arguments to be passed}
 }
 \description{
-TBD
+wrapper function of lapply in datatable
 }

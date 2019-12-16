@@ -4,7 +4,7 @@
 \alias{dt.count}
 \title{dt.count}
 \source{
-DTwrapers::create.filter.expression
+DTwrappers::create.filter.expression
 }
 \usage{
 dt.count(

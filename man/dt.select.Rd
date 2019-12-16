@@ -4,7 +4,7 @@
 \alias{dt.select}
 \title{dt select}
 \source{
-DTwrapers::create.filter.expression
+DTwrappers::create.filter.expression
 }
 \usage{
 dt.select(

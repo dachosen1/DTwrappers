@@ -12,5 +12,5 @@ dt.remove.variables(dat, the.variables)
 \item{the.variables}{a character vector with the column names to be removed from dat.}
 }
 \description{
-TBD
+a function to remove selected columns from dat
 }

@@ -4,7 +4,7 @@
 \alias{dt.first.k.rows}
 \title{dt.first.k.rows}
 \source{
-DTwrapers::dt.select
+DTwrappers::dt.select
 }
 \usage{
 dt.first.k.rows(
@@ -30,7 +30,7 @@ dt.first.k.rows(
 
 \item{grouping.type}{a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.}
 
-\item{...}{tbd}
+\item{...}{additional arguments to be passed}
 }
 \description{
 A functions that returns the first K number of rows from the given data frame based on the variables and the grouping varaibles statement.

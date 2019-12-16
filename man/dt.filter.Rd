@@ -4,7 +4,7 @@
 \alias{dt.filter}
 \title{dt.filter}
 \source{
-DTwrapers::create.filter.expression
+DTwrappers::create.filter.expression
 }
 \usage{
 dt.filter(dat, the.filter = NULL)

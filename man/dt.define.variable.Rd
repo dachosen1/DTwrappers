@@ -4,7 +4,7 @@
 \alias{dt.define.variable}
 \title{df.define.variable}
 \source{
-DTwrapers::create.filter.expression
+DTwrappers::create.filter.expression
 }
 \usage{
 dt.define.variable(
