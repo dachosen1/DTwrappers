@@ -58,8 +58,7 @@ dt.first.k.rows <-
       )
     )
   }
-<<<<<<< HEAD
-=======
+
 
 
 #' dt.last.k.rows
@@ -119,4 +118,3 @@ dt.last.k.rows <-
       )
     )
   }
->>>>>>> 6ff87cf91489807d6989d5a4e23db28e938a091d
