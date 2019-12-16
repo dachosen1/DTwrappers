@@ -41,7 +41,7 @@
 #' snack.dat[1:10, .SD, .SDcols = c(region.name, "Region and Country")]
 #'
 #' @import data.table
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrappers::create.filter.expression
 #' @export
 dt.define.variable <-
   function(dat,

@@ -1,4 +1,4 @@
-Package: DTwrapers
+Package: DTwrappers
 Title: Wrapper for the data.table package 
 Version: 0.0.1
 Authors@R: c(

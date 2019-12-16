@@ -66,7 +66,7 @@ create.filter.expression <- function(the.filter) {
 #'  grouping.variables = c(age.name,income.name),
 #'  grouping.type = 'keyby', count.name = "counts")
 #'
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrappers::create.filter.expression
 #' @import data.table
 #' @export
 dt.count <-
@@ -128,7 +128,7 @@ dt.count <-
 #'  )
 #')
 #'
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrappers::create.filter.expression
 #' @import data.table
 #' @export
 dt.filter <- function(dat, the.filter = NULL) {
@@ -155,7 +155,7 @@ dt.filter <- function(dat, the.filter = NULL) {
 #'
 #'
 #' @import formulaic
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrappers::create.filter.expression
 #' @export
 #' @examples
 #'

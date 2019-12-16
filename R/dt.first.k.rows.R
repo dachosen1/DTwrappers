@@ -8,11 +8,11 @@
 #' @param the.filter a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
 #' @param grouping.variables a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
 #' @param grouping.type a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-#' @param ... tbd
+#' @param ... additional arguments to be passed
 #' @note  Calls dt.select.R with first.k = k.
 #'
 #' @import formulaic
-#' @source DTwrapers::dt.select
+#' @source DTwrappers::dt.select
 #' @export
 #'
 #' @examples
@@ -70,10 +70,10 @@ dt.first.k.rows <-
 #' @param  the.filter a character value or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.
 #' @param  grouping.variables a character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) and do not exist in the.variables will be used.
 #' @param  grouping.type a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.
-#' @param  ... tbd
+#' @param  ... additional arguments to be passed
 #' @note  Calls dt.select.R with last.k = k.
 #' @import formulaic
-#' @source DTwrapers::dt.select
+#' @source DTwrappers::dt.select
 #' @export
 #' @examples
 #'
