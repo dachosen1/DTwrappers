@@ -133,8 +133,7 @@ dt.count <-
 #' @export
 dt.filter <- function(dat, the.filter = NULL) {
   data.table::setDT(dat)
- 
-  data.table::setnames(x = the.count, old = "the_new_name_happens_to_be", new = count.name)
+
   the.filter <- create.filter.expression(the.filter = the.filter)
   return(dat[eval(the.filter), ])
 }
