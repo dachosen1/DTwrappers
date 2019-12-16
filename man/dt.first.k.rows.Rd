@@ -4,20 +4,7 @@
 \alias{dt.first.k.rows}
 \title{dt.first.k.rows}
 \source{
-dt.select.R
-
-DTwrapers::create.filter.expression
-
-id.name = "User ID"
-age.name = "Age"
-product.name = "Product"
-gender.name  = "Gender"
-region.name = "Region"
-
-
-dt.first.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
-
-dt.first.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
+DTwrappers::dt.select
 }
 \usage{
 dt.first.k.rows(
@@ -43,11 +30,34 @@ dt.first.k.rows(
 
 \item{grouping.type}{a character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.}
 
-\item{...}{tbd}
+\item{...}{additional arguments to be passed}
 }
 \description{
 A functions that returns the first K number of rows from the given data frame based on the variables and the grouping varaibles statement.
 }
 \note{
 Calls dt.select.R with first.k = k.
+}
+\examples{
+
+id.name = "User ID"
+age.name = "Age"
+product.name = "Product"
+gender.name  = "Gender"
+region.name = "Region"
+
+
+dt.first.k.rows(dat = formulaic::snack.dat, 
+k = 2, 
+the.variables = c(id.name, age.name, product.name), 
+grouping.variables = gender.name, 
+grouping.type = "by")
+
+dt.first.k.rows(dat = formulaic::snack.dat, 
+k = 1, 
+the.variables = c(id.name, age.name, product.name), 
+grouping.variables = c(gender.name, region.name), 
+grouping.type = "keyby")
+
+
 }
