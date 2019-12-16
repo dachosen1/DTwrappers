@@ -50,9 +50,9 @@ dt.define.variable <- function(dat, variable.name, the.values, specification = "
   if(specification == "by.expression"){
     the.values <- parse(text = the.values)
   }
-    
+  
   dat[eval(the.filter), eval(variable.name) := eval(the.values)]
-
+  
   return(dat)
 }
 
