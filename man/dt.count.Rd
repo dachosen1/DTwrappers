@@ -38,20 +38,20 @@ the data.frame dat will be converted to a data.table object to facilitate adding
  income.name = "Income"
  region.name = "Region"
  gender.name = "Gender"
- 
+
  dt.count(dat = formulaic::snack.dat)
- 
- dt.count(dat = formulaic::snack.dat, 
+
+ dt.count(dat = formulaic::snack.dat,
  grouping.variables = c(region.name, gender.name))
- 
- dt.count(dat = formulaic::snack.dat, 
- the.filter = "Age > 65", 
- grouping.variables = c(region.name, gender.name), 
- count.name = "Records with Age > 65") 
- 
- dt.count(dat = formulaic::snack.dat, 
- the.filter = 'get(age.name) > 20', 
- grouping.variables = c(age.name,income.name), 
+
+ dt.count(dat = formulaic::snack.dat,
+ the.filter = "Age > 65",
+ grouping.variables = c(region.name, gender.name),
+ count.name = "Records with Age > 65")
+
+ dt.count(dat = formulaic::snack.dat,
+ the.filter = 'get(age.name) > 20',
+ grouping.variables = c(age.name,income.name),
  grouping.type = 'keyby', count.name = "counts")
 
 }
