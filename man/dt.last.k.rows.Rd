@@ -19,8 +19,15 @@ dt.last.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age
 dt.last.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
 }
 \usage{
-dt.last.k.rows(dat, k = NULL, the.variables = ".", the.filter = NULL,
-  grouping.variables = NULL, grouping.type = "keyby", ...)
+dt.last.k.rows(
+  dat,
+  k = NULL,
+  the.variables = ".",
+  the.filter = NULL,
+  grouping.variables = NULL,
+  grouping.type = "keyby",
+  ...
+)
 }
 \arguments{
 \item{dat}{a data.frame object.}

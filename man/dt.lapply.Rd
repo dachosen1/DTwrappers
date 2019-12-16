@@ -4,9 +4,17 @@
 \alias{dt.lapply}
 \title{dt.lapply}
 \usage{
-dt.lapply(dat, the.variables = ".", the.functions, the.filter = NULL,
-  grouping.variables = NULL, grouping.type = "keyby",
-  add.function.name = TRUE, other.params = "", ...)
+dt.lapply(
+  dat,
+  the.variables = ".",
+  the.functions,
+  the.filter = NULL,
+  grouping.variables = NULL,
+  grouping.type = "keyby",
+  add.function.name = TRUE,
+  other.params = "",
+  ...
+)
 }
 \arguments{
 \item{dat}{a data.frame object.}
