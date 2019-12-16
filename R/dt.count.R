@@ -252,7 +252,7 @@ dt.select <-
            last.k = NULL,
            row.indices = NULL) {
     data.table::setDT(dat)
-    source('R/create.filter.expression.R')
+    
     .N <- NULL
     
     if (the.variables[1] == ".") {

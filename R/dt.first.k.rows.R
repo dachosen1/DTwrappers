@@ -12,8 +12,7 @@
 #' @note  Calls dt.select.R with first.k = k.
 #'
 #' @import formulaic
-#' @source dt.select.R
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrapers::dt.select
 #' @export
 #'
 #' @examples
@@ -74,8 +73,7 @@ dt.first.k.rows <-
 #' @param  ... tbd
 #' @note  Calls dt.select.R with last.k = k.
 #' @import formulaic
-#' @source dt.select.R
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrapers::dt.select
 #' @export
 #' @examples
 #'

@@ -4,9 +4,7 @@
 \alias{dt.last.k.rows}
 \title{dt.last.k.rows}
 \source{
-dt.select.R
-
-DTwrapers::create.filter.expression
+DTwrapers::dt.select
 }
 \usage{
 dt.last.k.rows(

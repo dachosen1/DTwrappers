@@ -4,9 +4,7 @@
 \alias{dt.first.k.rows}
 \title{dt.first.k.rows}
 \source{
-dt.select.R
-
-DTwrapers::create.filter.expression
+DTwrapers::dt.select
 }
 \usage{
 dt.first.k.rows(
