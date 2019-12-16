@@ -1,5 +1,5 @@
 #'dt.remove.variables
-#' @description  TBD
+#' @description  a function to remove selected columns from dat
 #'
 #' @param  dat  a data.frame object
 #' @param the.variables  a character vector with the column names to be removed from dat.

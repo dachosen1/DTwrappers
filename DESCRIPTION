@@ -1,4 +1,4 @@
-Package: DTwrapers
+Package: DTwrappers
 Title: Wrapper for the data.table package 
 Version: 0.0.1
 Authors@R: c(
@@ -16,7 +16,8 @@ RoxygenNote: 7.0.2
 Suggests: 
     knitr,
     rmarkdown,
-    covr
+    covr,
+    testthat (>= 2.1.0)
 VignetteBuilder: knitr
 Imports: 
     data.table,

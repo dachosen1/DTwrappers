@@ -1,6 +1,6 @@
 #' dt.lapply
 #'
-#' @description  TBD
+#' @description  wrapper function of lapply in datatable
 #'
 #' @param dat  a data.frame object.
 #' @param the.variables  a character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).
@@ -11,6 +11,7 @@
 #' @param add.function.name  a logical value specifying whether the name of the function applied should be appended to the column names in the resulting table.  Only applies if the.functions is of length 1.
 #' @param other.params  a character value specifying any additional parameters needed to call the.functions.  For instance, if the.functions = "mean", and you would like to remove missing values, then specifying other.params = "na.rm = TRUE" as a character would suffice.  Multiple parameters can be specified with comma separation, e.g. other.params = "trim = 1, na.rm = TRUE".  Note that all of the parameters supplied must apply to all of the.functions
 #' @param  ... additional arguments to be passed 
+#' @source DTwrappers::create.filter.expression
 #' @import data.table
 #'
 #' @export

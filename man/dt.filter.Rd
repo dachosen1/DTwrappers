@@ -3,6 +3,9 @@
 \name{dt.filter}
 \alias{dt.filter}
 \title{dt.filter}
+\source{
+DTwrappers::create.filter.expression
+}
 \usage{
 dt.filter(dat, the.filter = NULL)
 }

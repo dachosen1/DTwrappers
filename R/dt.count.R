@@ -6,6 +6,7 @@
 #' @param the.filter The filter criteria could be a character value, logical value, or expression
 #' stating the logical operations to be performed in filtering the data.
 #'
+#' @export
 #' @examples
 #' age.name = "Age"
 #' region.name = "Region"
@@ -65,7 +66,7 @@ create.filter.expression <- function(the.filter) {
 #'  grouping.variables = c(age.name,income.name),
 #'  grouping.type = 'keyby', count.name = "counts")
 #'
-#' @source create.filter.expression.R
+#' @source DTwrappers::create.filter.expression
 #' @import data.table
 #' @export
 dt.count <-
@@ -127,12 +128,13 @@ dt.count <-
 #'  )
 #')
 #'
+#' @source DTwrappers::create.filter.expression
+#' @import data.table
 #' @export
 dt.filter <- function(dat, the.filter = NULL) {
   data.table::setDT(dat)
-  
+
   the.filter <- create.filter.expression(the.filter = the.filter)
-  
   return(dat[eval(the.filter), ])
 }
 
@@ -153,9 +155,9 @@ dt.filter <- function(dat, the.filter = NULL) {
 #'
 #'
 #' @import formulaic
+#' @source DTwrappers::create.filter.expression
 #' @export
 #' @examples
-#' @source DTwrapers::create.filter.expression
 #'
 #' id.name = 'User ID'
 #' awareness.name = 'Awareness'
@@ -250,7 +252,7 @@ dt.select <-
            last.k = NULL,
            row.indices = NULL) {
     data.table::setDT(dat)
-    source('R/create.filter.expression.R')
+    
     .N <- NULL
     
     if (the.variables[1] == ".") {
