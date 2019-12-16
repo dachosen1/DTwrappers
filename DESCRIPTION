@@ -16,9 +16,9 @@ LazyData: true
 RoxygenNote: 7.0.2
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
 Imports: 
     data.table,
     formulaic
-
