@@ -7,17 +7,6 @@
 dt.select.R
 
 DTwrapers::create.filter.expression
-
-id.name = "User ID"
-age.name = "Age"
-product.name = "Product"
-gender.name  = "Gender"
-region.name = "Region"
-
-
-dt.first.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
-
-dt.first.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
 }
 \usage{
 dt.first.k.rows(
@@ -50,4 +39,27 @@ A functions that returns the first K number of rows from the given data frame ba
 }
 \note{
 Calls dt.select.R with first.k = k.
+}
+\examples{
+
+id.name = "User ID"
+age.name = "Age"
+product.name = "Product"
+gender.name  = "Gender"
+region.name = "Region"
+
+
+dt.first.k.rows(dat = formulaic::snack.dat, 
+k = 2, 
+the.variables = c(id.name, age.name, product.name), 
+grouping.variables = gender.name, 
+grouping.type = "by")
+
+dt.first.k.rows(dat = formulaic::snack.dat, 
+k = 1, 
+the.variables = c(id.name, age.name, product.name), 
+grouping.variables = c(gender.name, region.name), 
+grouping.type = "keyby")
+
+
 }

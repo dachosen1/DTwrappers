@@ -12,11 +12,11 @@
 #' @note  Calls dt.select.R with first.k = k.
 #'
 #' @import formulaic
+#' @source dt.select.R
+#' @source DTwrapers::create.filter.expression
 #' @export
 #'
 #' @examples
-#' @source dt.select.R
-#' @source DTwrapers::create.filter.expression
 #'
 #' id.name = "User ID"
 #' age.name = "Age"
@@ -25,9 +25,17 @@
 #' region.name = "Region"
 #'
 #'
-#' dt.first.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
+#' dt.first.k.rows(dat = formulaic::snack.dat, 
+#' k = 2, 
+#' the.variables = c(id.name, age.name, product.name), 
+#' grouping.variables = gender.name, 
+#' grouping.type = "by")
 #'
-#' dt.first.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
+#' dt.first.k.rows(dat = formulaic::snack.dat, 
+#' k = 1, 
+#' the.variables = c(id.name, age.name, product.name), 
+#' grouping.variables = c(gender.name, region.name), 
+#' grouping.type = "keyby")
 #'
 #'
 #' @export
@@ -66,11 +74,10 @@ dt.first.k.rows <-
 #' @param  ... tbd
 #' @note  Calls dt.select.R with last.k = k.
 #' @import formulaic
-#'
-#' @export
-#' @examples
 #' @source dt.select.R
 #' @source DTwrapers::create.filter.expression
+#' @export
+#' @examples
 #'
 #' id.name = "User ID"
 #' age.name = "Age"
@@ -78,9 +85,17 @@ dt.first.k.rows <-
 #' gender.name  = "Gender"
 #' region.name = "Region"
 #'
-#' dt.last.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
+#' dt.last.k.rows(dat = formulaic::snack.dat, 
+#' k = 2, 
+#' the.variables = c(id.name, age.name, product.name), 
+#' grouping.variables = gender.name, 
+#' grouping.type = "by")
 #'
-#' dt.last.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
+#' dt.last.k.rows(dat = formulaic::snack.dat, 
+#' k = 1, 
+#' the.variables = c(id.name, age.name, product.name), 
+#' grouping.variables = c(gender.name, region.name), 
+#' grouping.type = "keyby")
 #'
 #'
 #' @export

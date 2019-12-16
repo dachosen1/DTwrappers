@@ -5,6 +5,40 @@
 \title{dt select}
 \source{
 DTwrapers::create.filter.expression
+}
+\usage{
+dt.select(
+  dat,
+  the.variables = ".",
+  the.filter = NULL,
+  grouping.variables = NULL,
+  grouping.type = "keyby",
+  first.k = NULL,
+  last.k = NULL,
+  row.indices = NULL
+)
+}
+\arguments{
+\item{dat}{A data.frame object.}
+
+\item{the.variables}{A character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).}
+
+\item{the.filter}{A character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.}
+
+\item{grouping.variables}{A character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.}
+
+\item{grouping.type}{A character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.}
+
+\item{first.k}{An integer indicating how many rows to select starting from the first row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if first.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of first.k are selected, the algorithm will select first.k = max(c(1, round(first.k))).  If first.k is not a numeric or integer value, then by default first.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter first.k; if row.indices is not NULL, then row.indices will be used, and first.k will not. Meanwhile, first.k takes precedence to last.k when both are specified.  See below.}
+
+\item{last.k}{An integer indicating how many rows to select starting from the last row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if last.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of last.k are selected, the algorithm will select last.k = max(c(1, round(last.k))).  If last.k is not a numeric or integer value, then by default last.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter last.k (see below); if row.indices is not NULL, then it will be used, and last.k will not.  Meanwhile, first.k takes precedence to last.k when both are specified.}
+
+\item{row.indices}{An integer vector specifying the row indices to return.  When grouping.variables is specified, these indices will be applied to each group.  Note that specifications outside of the range from 1 to the number of rows will be limited to existing rows from the data and group.  Specifying row.indices takes precedence to specifying the parameters first.k and last.k.  If row.indices is not NULL, it will be used.}
+}
+\description{
+This provides more flexibility in selecting the rows to include such as first.k, last.k, or specific row by setting up the parameters.
+}
+\examples{
 
 id.name = 'User ID'
 awareness.name = 'Awareness'
@@ -87,36 +121,5 @@ dt.select(
  grouping.variables = c(gender.name),
  row.indices = 7:9
 )
-}
-\usage{
-dt.select(
-  dat,
-  the.variables = ".",
-  the.filter = NULL,
-  grouping.variables = NULL,
-  grouping.type = "keyby",
-  first.k = NULL,
-  last.k = NULL,
-  row.indices = NULL
-)
-}
-\arguments{
-\item{dat}{A data.frame object.}
 
-\item{the.variables}{A character vector specifying the variables that we want to apply a function to.  Only values that exist in names(dat) will be used; other values in the.variables will be excluded from the calculation.  When the.variables includes ".", then all values in names(dat) will be selected.  Values of the.variables that also exist in grouping.variables will be excluded from the.variables (but grouped by these values).}
-
-\item{the.filter}{A character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function.}
-
-\item{grouping.variables}{A character vector specifying variables to group by in performing the computation.  Only values that exist in names(dat) will be used.}
-
-\item{grouping.type}{A character value specifying whether the grouping should be sorted (keyby) or as is (by).  Defaults to keyby unless "by" is specified.}
-
-\item{first.k}{An integer indicating how many rows to select starting from the first row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if first.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of first.k are selected, the algorithm will select first.k = max(c(1, round(first.k))).  If first.k is not a numeric or integer value, then by default first.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter first.k; if row.indices is not NULL, then row.indices will be used, and first.k will not. Meanwhile, first.k takes precedence to last.k when both are specified.  See below.}
-
-\item{last.k}{An integer indicating how many rows to select starting from the last row.  Note that grouping statements will select up to this number of rows in each group.  Additionally, if last.k is larger than the number of records in a group, then the maximum number of records will be selected.  When non-integer or non-positive values of last.k are selected, the algorithm will select last.k = max(c(1, round(last.k))).  If last.k is not a numeric or integer value, then by default last.k is set to select all of the rows.  Specifying row.indices takes precedence to specifying the parameter last.k (see below); if row.indices is not NULL, then it will be used, and last.k will not.  Meanwhile, first.k takes precedence to last.k when both are specified.}
-
-\item{row.indices}{An integer vector specifying the row indices to return.  When grouping.variables is specified, these indices will be applied to each group.  Note that specifications outside of the range from 1 to the number of rows will be limited to existing rows from the data and group.  Specifying row.indices takes precedence to specifying the parameters first.k and last.k.  If row.indices is not NULL, it will be used.}
-}
-\description{
-This provides more flexibility in selecting the rows to include such as first.k, last.k, or specific row by setting up the parameters.
 }

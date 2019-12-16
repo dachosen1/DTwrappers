@@ -7,16 +7,6 @@
 dt.select.R
 
 DTwrapers::create.filter.expression
-
-id.name = "User ID"
-age.name = "Age"
-product.name = "Product"
-gender.name  = "Gender"
-region.name = "Region"
-
-dt.last.k.rows(dat = formulaic::snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
-
-dt.last.k.rows(dat = formulaic::snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
 }
 \usage{
 dt.last.k.rows(
@@ -49,4 +39,26 @@ A functions that returns the last K number of rows from the given data frame bas
 }
 \note{
 Calls dt.select.R with last.k = k.
+}
+\examples{
+
+id.name = "User ID"
+age.name = "Age"
+product.name = "Product"
+gender.name  = "Gender"
+region.name = "Region"
+
+dt.last.k.rows(dat = formulaic::snack.dat, 
+k = 2, 
+the.variables = c(id.name, age.name, product.name), 
+grouping.variables = gender.name, 
+grouping.type = "by")
+
+dt.last.k.rows(dat = formulaic::snack.dat, 
+k = 1, 
+the.variables = c(id.name, age.name, product.name), 
+grouping.variables = c(gender.name, region.name), 
+grouping.type = "keyby")
+
+
 }
