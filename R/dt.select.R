@@ -16,7 +16,7 @@
 #' @import formulaic
 #' @export
 #' @examples 
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrappers::create.filter.expression
 #' 
 #' id.name = 'User ID'
 #' awareness.name = 'Awareness'

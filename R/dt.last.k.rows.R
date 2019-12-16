@@ -14,7 +14,7 @@
 #' @export
 #' @examples 
 #' @source dt.select.R
-#' @source DTwrapers::create.filter.expression
+#' @source DTwrappers::create.filter.expression
 #' 
 #' id.name = "User ID"
 #' age.name = "Age"
