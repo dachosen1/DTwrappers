@@ -4,13 +4,12 @@
 \name{DTwrapers-package}
 \alias{DTwrapers}
 \alias{DTwrapers-package}
-\title{DTwrapers: What the Package Does (Title Case)}
+\title{DTwrapers: Wrapper for the data.table package}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Many newcomers to the data.table packages are overwhelmed by the unique syntax and DTwrappers contains wrapper functions for data.table while still maintaining the data.table execution speed.
 }
 \author{
-\strong{Maintainer}: Anderson Nelson \email{an2908@columbia.edu} [contributor]
+\strong{Maintainer}: Caffrey Lee \email{cl3802@columbia.edu} [contributor]
 
 Authors:
 \itemize{
@@ -19,7 +18,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Caffrey Lee \email{cl3802@columbia.edu} [contributor]
+  \item Anderson Nelson \email{an2908@columbia.edu} [contributor]
   \item Zichen Huang \email{zh2380@columbia.edu} [contributor]
 }
 
