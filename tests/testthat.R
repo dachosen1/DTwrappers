@@ -1,4 +1,4 @@
 library(testthat)
+library(DTwrappers)
 
-
-test_check("DTwrapers")
+test_check("DTwrappers")
