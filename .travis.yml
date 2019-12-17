@@ -13,14 +13,13 @@ matrix:
     env: VDIFFR_RUN_TESTS=true
     before_cache:
     - Rscript -e 'remotes::install_cran("pkgdown")'
-    deploy:
-      provider: script
-      script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
-      skip_cleanup: true
+    
   - r: 3.5
   - r: 3.4
   - r: 3.3
   - r: 3.2
+  - r: 3.1
+  
     env: R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
 
 # environment variables set for all builds
