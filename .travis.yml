@@ -7,7 +7,7 @@ cache: packages
 matrix:
   include:
   - r: devel
-    # avoind errors due to world clock API (hopefully can be removed in future)
+    # avoid errors due to world clock API (hopefully can be removed in future)
     env: _R_CHECK_SYSTEM_CLOCK_=false
   - r: release
     env: VDIFFR_RUN_TESTS=true
