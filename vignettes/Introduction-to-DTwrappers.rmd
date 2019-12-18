@@ -67,10 +67,9 @@ create.filter.expression(the.filter = "get(region.name) == 'South'")
 ```
 
 ```{r create.filter.expression_example5}
-create.filter.expression(the.filter = "get(region.name) == 'South' & get(age.name) > 20")
+create.filter.expression(the.filter = "get(age.name) > 20")
 ```
-
-```{r create.filter.expression_example1}
+```{r create.filter.expression_example6}
 create.filter.expression(the.filter = "get(region.name) == 'South' & get(age.name) > 20")
 ```
 
