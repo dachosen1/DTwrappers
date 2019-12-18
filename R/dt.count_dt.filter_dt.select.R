@@ -55,7 +55,7 @@ dt.count <-
         dat[eval(the.filter), .(the_new_name_happens_to_be = .N), keyby = eval(grouping.variables)]
     }
     
-    setnames(x = the.count, old = "the_new_name_happens_to_be", new = count.name)
+    data.table::setnames(x = the.count, old = "the_new_name_happens_to_be", new = count.name)
     
     return(the.count)
   }
