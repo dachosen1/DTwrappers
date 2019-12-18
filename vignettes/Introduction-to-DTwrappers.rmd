@@ -1,0 +1,144 @@
+---
+title: "Introduction to DTwrappers"
+output: rmarkdown::html_vignette
+author: 'Authors: David Shilane, Caffrey Lee, Zoe Huang, Anderson Nelson'
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{Introduction to DTwrappers}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r library, echo=FALSE}
+library(formulaic)
+library(data.table)
+library(knitr)
+library(DTwrappers)
+data("snack.dat", package = "formulaic")
+```
+
+```{r constant,echo=FALSE}
+id.name <- "User ID"
+awareness.name <- "Awareness"
+satisfaction.name <- "Satisfaction"
+age.name <- "Age"
+gender.name <- "Gender"
+income.name <- "Income"
+region.name <- "Region"
+persona.name <- "Persona"
+bp.patterns <- "BP_"
+consumption.name <- "Consumption"
+consideration.name <- "Consideration"
+advocacy.name <- "Advocacy"
+satisfaction.name <- "Satisfaction"
+age.group.name <- "Age Group"
+income.group.name <- "Income Group"
+```
+
+# Introduction
+
+Many newcomers to the data.table package are overwhelmed by the unique syntax . **DTwrappers** is useful in applying data.table with wrapper functions while still maintaining the data.table execution speed. 
+
+**DTwrappers** package has 9 main functions. The main purpose of developing the package is to help users to apply data.table package faster and more convenient.
+
+ - **create.filter.expression** automatically creates filter expressions from a provided a character value, logical value, or expression stating the logical operations.
+ 
+```{r create.filter.expression_example}
+create.filter.expression(the.filter = NULL)
+create.filter.expression(the.filter = c(age.name, region.name))
+create.filter.expression(the.filter = age.name == region.name)
+create.filter.expression(the.filter = "get(region.name) == 'South'")
+create.filter.expression(the.filter = "get(age.name) > 20")
+create.filter.expression(the.filter = "get(region.name) == 'South' & get(age.name) > 20")
+```
+
+ - **dt.count** is a wrapper to computations like `dat[the.filter, .N, keyby = grouping.variables]` that counts the number of rows that meets the qualification such as filter and the by (grouping variables).
+
+```{r dt.count_example1}
+dt.count(dat = snack.dat)
+```
+
+```{r dt.count_example2}
+dt.count(dat = snack.dat,
+grouping.variables = c(region.name, gender.name))
+```
+
+```{r dt.count_example3}
+dt.count(dat = snack.dat,
+the.filter = "Age > 65",
+grouping.variables = c(region.name, gender.name),
+count.name = "Records with Age > 65")
+```
+
+```{r dt.count_example4}
+dt.count(dat = snack.dat,
+the.filter = 'get(age.name) > 20',
+grouping.variables = c(age.name,income.name),
+grouping.type = 'keyby', count.name = "counts")
+```
+ 
+ - **dt.filter** subsets the data corresponding to the filtering statement.
+ 
+ - **dt.select** provides more flexibility in selecting the rows to include such as first.k, last.k, or specific row by setting up the parameters.
+ 
+ - **df.define.variable** is a wrapper to computations like `dat[, new.variable := new.values]` that allows users to re-define the variables so that users have freedom to set the variable name and the the values. The values could be either expression, direct code(data.table format), or character.
+
+```{r df.define.variable_example1}
+snack.dat1 = copy(snack.dat)
+snack.dat1 <- dt.define.variable(dat = snack.dat1,
+variable.name = "Age Decade",
+the.values = snack.dat1[, floor(get(age.name) / 10)])
+snack.dat1[1:10, .SD, .SDcols = c(age.name, "Age Decade")]
+```
+
+```{r df.define.variable_example2}
+snack.dat2 = copy(snack.dat)
+snack.dat2 <- dt.define.variable(dat = snack.dat2,
+variable.name = "Income in Thousands",
+the.values = expression(floor(get(income.name) / 10^3)),
+specification = "by.expression")
+snack.dat2[1:10, .SD, .SDcols = c(income.name, "Income in Thousands")]
+```
+
+```{r df.define.variable_example3}
+snack.dat3 = copy(snack.dat)
+snack.dat3 <- dt.define.variable(dat = snack.dat3,
+variable.name = "Income in Thousands",
+the.values = "floor(get(income.name) / 10^3)",
+specification = "by.expression")
+snack.dat3[1:10, .SD, .SDcols = c(income.name, "Income in Thousands")]
+```
+
+```{r df.define.variable_example4}
+snack.dat4 = copy(snack.dat)
+snack.dat4 <- dt.define.variable(dat = snack.dat4,
+variable.name = "Region and Country",
+the.values = expression(sprintf('%s, USA', get(region.name))),
+specification = "by.expression")
+snack.dat4[1:10, .SD, .SDcols = c(region.name, "Region and Country")]
+```
+ 
+ - **dt.first.k.rows** returns the first K number of rows from the given data frame based on the variables and the grouping varaibles statement.
+ 
+ - **dt.last.k.rows** returns the last K number of rows from the given data frame based on the variables and the grouping varaibles statement.
+ 
+ - **dt.lapply** is a wrapper to calculations like `dat[the.filter, lapply(X = .SD, FUN = function.name), .SDcols = the.variables, keyby = grouping.variables]` by specifying:
+ 
+    - the.filter (character or expression) for the i step
+    
+    - the.variables (character vector of column names) for the .SDcols
+    
+    - the.functions (character vector of function names) for the functions to apply
+    
+    - grouping.variables (character vector of column names) for the variables to group by.
+ 
+ - **dt.remove.variables** is a wrapper to computations like `dat[, this.variable := NULL]` that removes selected columns from dat
+ 
+ 
