@@ -34,7 +34,7 @@ create.filter.expression <- function(the.filter) {
 
 #' dt.count
 #'
-#' @description A function that counts the number of rows that meets the qualification such as filter and the by. If both filter and the by are not set up, then it will return the number of rows.
+#' @description A function that counts the number of rows that meets the qualification such as filter and the by (grouping variables). If both filter and the grouping variables are not set up, then it will return the number of rows.
 #'
 #' @param dat  a data.frame object.
 #' @param the.filter a character value, logical value, or expression stating the logical operations to be performed in filtering the data prior to calculating the.function. Defaults to "NULL" unless specified.
@@ -139,7 +139,7 @@ dt.filter <- function(dat, the.filter = NULL) {
 }
 
 
-#' dt select
+#' dt.select
 #'
 #' @description This provides more flexibility in selecting the rows to include such as first.k, last.k, or specific row by setting up the parameters.
 #'
