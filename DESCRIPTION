@@ -8,7 +8,7 @@ Authors@R: c(
     person("Zichen", "Huang", , "zh2380@columbia.edu", c("ctb"))
     )
 Depends: R (>= 3.1.0)
-Description: Many newcomers to the data.table packages are overwhelmed by the unique syntax and DTwrappers contains wrapper functions for data.table while still maintaining the data.table execution speed. 
+Description: Many newcomers to the data.table package are overwhelmed by the unique syntax and DTwrappers contains wrapper functions for data.table while still maintaining the data.table execution speed. 
 License: GPL-3 
 Encoding: UTF-8
 LazyData: true
