@@ -8,10 +8,10 @@
 Many newcomers to the data.table package are overwhelmed by the unique syntax . **DTwrappers** is useful in applying data.table with wrapper functions while still maintaining the data.table execution speed. 
 
 ## Install the current release from CRAN: ##
-install.packages('DTwrappers')
+`install.packages('DTwrappers')`
 
 ## Install the development version from GitHub: ##
-devtools::install_github('dachosen1/DTwrappers')
+`devtools::install_github('dachosen1/DTwrappers')`
 
 ## Usage ##
 
