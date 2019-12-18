@@ -12,7 +12,6 @@
 #' @note  Calls dt.select.R with first.k = k.
 #'
 #' @import formulaic
-#' @source DTwrappers::dt.select
 #' @export
 #'
 #' @examples
@@ -36,7 +35,7 @@
 #' grouping.variables = c(gender.name, region.name), 
 #' grouping.type = "keyby")
 #'
-#'
+#' @source DTwrappers::dt.select
 #' @export
 dt.first.k.rows <-
   function(dat,
@@ -74,7 +73,6 @@ dt.first.k.rows <-
 #' @param  ... additional arguments to be passed
 #' @note  Calls dt.select.R with last.k = k.
 #' @import formulaic
-#' @source DTwrappers::dt.select
 #' @export
 #' @examples
 #'
@@ -96,7 +94,7 @@ dt.first.k.rows <-
 #' grouping.variables = c(gender.name, region.name), 
 #' grouping.type = "keyby")
 #'
-#'
+#' @source DTwrappers::dt.select
 #' @export
 dt.last.k.rows <-
   function(dat,

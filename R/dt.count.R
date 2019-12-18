@@ -103,7 +103,7 @@ dt.count <-
 #' @param the.filter  a character value or expression stating the logical operations to be performed.
 #'
 #' @import formulaic
-#'
+#' @export
 #' @examples
 #' region.name = "Region"
 #' gender.name = "Gender"
@@ -155,7 +155,7 @@ dt.filter <- function(dat, the.filter = NULL) {
 #'
 #'
 #' @import formulaic
-#' @source DTwrappers::create.filter.expression
+#' 
 #' @export
 #' @examples
 #'
@@ -241,6 +241,8 @@ dt.filter <- function(dat, the.filter = NULL) {
 #'  row.indices = 7:9
 #' )
 #'
+#' @import data.table
+#' @source DTwrappers::create.filter.expression
 #' @export
 dt.select <-
   function(dat,

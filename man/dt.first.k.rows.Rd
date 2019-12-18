@@ -59,5 +59,4 @@ the.variables = c(id.name, age.name, product.name),
 grouping.variables = c(gender.name, region.name), 
 grouping.type = "keyby")
 
-
 }
