@@ -49,15 +49,7 @@ Many newcomers to the data.table package are overwhelmed by the unique syntax . 
 **DTwrappers** package has 9 main functions. The main purpose of developing the package is to help users to apply data.table package faster and more convenient.
 
  - **create.filter.expression** automatically creates filter expressions from a provided a character value, logical value, or expression stating the logical operations.
- 
-```{r create.filter.expression_example1}
-create.filter.expression(the.filter = NULL)
-create.filter.expression(the.filter = c(age.name, region.name))
-create.filter.expression(the.filter = age.name == region.name)
-create.filter.expression(the.filter = "get(region.name) == 'South'")
-create.filter.expression(the.filter = "get(age.name) > 20")
-create.filter.expression(the.filter = "get(region.name) == 'South' & get(age.name) > 20")
-```
+
 ```{r create.filter.expression_example1}
 create.filter.expression(the.filter = NULL)
 ```
