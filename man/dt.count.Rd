@@ -7,13 +7,8 @@
 DTwrappers::create.filter.expression
 }
 \usage{
-dt.count(
-  dat,
-  the.filter = NULL,
-  grouping.variables = NULL,
-  grouping.type = "keyby",
-  count.name = "N"
-)
+dt.count(dat, the.filter = NULL, grouping.variables = NULL,
+  grouping.type = "keyby", count.name = "N")
 }
 \arguments{
 \item{dat}{a data.frame object.}

@@ -40,6 +40,7 @@ advocacy.name <- "Advocacy"
 satisfaction.name <- "Satisfaction"
 age.group.name <- "Age Group"
 income.group.name <- "Income Group"
+product.name <- 'Product'
 ```
 
 # Introduction
@@ -101,7 +102,33 @@ grouping.type = 'keyby', count.name = "counts")
  - **dt.filter** subsets the data corresponding to the filtering statement.
  
  - **dt.select** provides more flexibility in selecting the rows to include such as first.k, last.k, or specific row by setting up the parameters.
+
+```{r dt.select example1}
+dt.select(dat = snack.dat, the.variables = c(id.name, awareness.name))
+```
+
+```{r dt.select example2}
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name)) 
+```
+
+```{r dt.select example3}
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2)
+```
  
+```{r dt.select example4}
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), last.k = 2)
+```
+
+```{r dt.select example5}
+dt.select(dat = snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), row.indices = 7:9)
+```
+
+```{r dt.select example6}
+dt.select(dat = formulaic::snack.dat, the.filter = "Age > 65 & Region == 'Northeast' & Product == 'Tiramisoup' & Awareness == 1", the.variables = c(consideration.name, consumption.name, satisfaction.name, advocacy.name), grouping.variables = c(gender.name), first.k = 2, last.k = 2)
+```
+
+Note: Specifying row.indices takes precedence to specifying the parameter first.k; if row.indices is not NULL, then row.indices will be used, and first.k will not. Meanwhile, first.k takes precedence to last.k when both are specified. 
+
  - **df.define.variable** is a wrapper to computations like `dat[, new.variable := new.values]` that allows users to re-define the variables so that users have freedom to set the variable name and the the values. The values could be either expression, direct code(data.table format), or character.
 
 ```{r df.define.variable_example1}
@@ -139,10 +166,28 @@ specification = "by.expression")
 snack.dat4[1:10, .SD, .SDcols = c(region.name, "Region and Country")]
 ```
  
+
  - **dt.first.k.rows** returns the first K number of rows from the given data frame based on the variables and the grouping varaibles statement.
  
+```{r dt.first.k.rows example1}
+dt.first.k.rows(dat = snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
+```
+```{r dt.first.k.rows example2}
+dt.first.k.rows(dat = snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
+```
+
  - **dt.last.k.rows** returns the last K number of rows from the given data frame based on the variables and the grouping varaibles statement.
  
+```{r dt.last.k.rows example1}
+dt.last.k.rows(dat = snack.dat, k = 2, the.variables = c(id.name, age.name, product.name), grouping.variables = gender.name, grouping.type = "by")
+```
+ 
+```{r dt.last.k.rows example2}
+dt.last.k.rows(dat = snack.dat, k = 1, the.variables = c(id.name, age.name, product.name), grouping.variables = c(gender.name, region.name), grouping.type = "keyby")
+
+```
+
+
  - **dt.lapply** is a wrapper to calculations like `dat[the.filter, lapply(X = .SD, FUN = function.name), .SDcols = the.variables, keyby = grouping.variables]` by specifying:
  
     - the.filter (character or expression) for the i step

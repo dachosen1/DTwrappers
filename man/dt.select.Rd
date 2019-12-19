@@ -7,16 +7,9 @@
 DTwrappers::create.filter.expression
 }
 \usage{
-dt.select(
-  dat,
-  the.variables = ".",
-  the.filter = NULL,
-  grouping.variables = NULL,
-  grouping.type = "keyby",
-  first.k = NULL,
-  last.k = NULL,
-  row.indices = NULL
-)
+dt.select(dat, the.variables = ".", the.filter = NULL,
+  grouping.variables = NULL, grouping.type = "keyby", first.k = NULL,
+  last.k = NULL, row.indices = NULL)
 }
 \arguments{
 \item{dat}{A data.frame object.}
