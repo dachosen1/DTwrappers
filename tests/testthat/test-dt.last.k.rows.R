@@ -33,5 +33,5 @@ test_that("dt.count works", {
   expect_equal(sum(dt.last.k.rows2$Region != c("Midwest","Northeast","South","West","Midwest","Northeast","South","West")), 0)
   expect_equal(sum(dt.last.k.rows2$`User ID` != c("id_992", "id_998","id_980", "id_991","id_997", "id_995","id_952", "id_1000")), 0)
   expect_equal(sum(dt.last.k.rows2$Age != c(40,36,60,37,54,81,73,36)), 0)
-  expect_equal(sum(dt.last.k.rows2$Product != c("Cookie_Crumble","Cookie_Crumble","Cookie_Crumble","Cookie_Crumble","Cookie_Crumble","Cookie_Crumble","Cookie_Crumble","Cookie_Crumble")), 0)
+  expect_equal(sum(dt.last.k.rows2$Product != c("Chippy_Cheese","Chippy_Cheese","Chippy_Cheese","Chippy_Cheese","Chippy_Cheese","Chippy_Cheese","Chippy_Cheese","Chippy_Cheese")), 0)
 })
