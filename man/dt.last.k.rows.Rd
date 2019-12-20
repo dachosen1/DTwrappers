@@ -7,8 +7,15 @@
 DTwrappers::dt.select
 }
 \usage{
-dt.last.k.rows(dat, k = NULL, the.variables = ".", the.filter = NULL,
-  grouping.variables = NULL, grouping.type = "keyby", ...)
+dt.last.k.rows(
+  dat,
+  k = NULL,
+  the.variables = ".",
+  the.filter = NULL,
+  grouping.variables = NULL,
+  grouping.type = "keyby",
+  ...
+)
 }
 \arguments{
 \item{dat}{a data.frame object.}

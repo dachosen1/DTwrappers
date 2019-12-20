@@ -7,8 +7,13 @@
 DTwrappers::create.filter.expression
 }
 \usage{
-dt.define.variable(dat, variable.name, the.values,
-  specification = "by.value", the.filter = NULL)
+dt.define.variable(
+  dat,
+  variable.name,
+  the.values,
+  specification = "by.value",
+  the.filter = NULL
+)
 }
 \arguments{
 \item{dat}{a data.frame object}
