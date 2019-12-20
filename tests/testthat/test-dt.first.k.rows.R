@@ -24,7 +24,7 @@ grouping.variables = c(gender.name, region.name),
 grouping.type = "keyby")
 
 
-test_that("dt.count works", {
+test_that("dt.first.k.rows works", {
   expect_equal(sum(dt.first.k.rows1$Gender != c("Male","Male","Female","Female")), 0)
   expect_equal(sum(dt.first.k.rows1$`User ID` != c("id_1", "id_2","id_4", "id_6")), 0)
   expect_equal(sum(dt.first.k.rows1$Age != c(49,65,54,64)), 0)
